@@ -4,6 +4,8 @@ const express = require('express');
 const winston = require('winston');
 const app = express();
 
+app.use(express.static('public'));
+
 require('./Startup/validation')();
 require('./Startup/logging')();
 require('./Startup/config')();
