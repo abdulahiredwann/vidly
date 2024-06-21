@@ -3,8 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const winston = require('winston');
 const app = express();
+const cors = require('cors')
 
-
+app.use(cors());
 
 require('./Startup/validation')();
 require('./Startup/logging')();

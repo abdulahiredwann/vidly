@@ -42,5 +42,22 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Fetch data from your server
+    fetch('https://vidly-two.vercel.app/api/genres')
+      .then(response => response.json())
+      .then(data => {
+        // Select the element where you want to display the data
+        const element = document.querySelector('#data');
+
+        // Convert the data to a string format suitable for HTML
+        const html = data.map(item => `<p>${item.name}</p>`).join('');
+
+        // Insert the data into the element
+        element.innerHTML = html;
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
 </body>
 </html>
